@@ -1,0 +1,55 @@
+<html>
+  <head>
+    <title>Boutiques d'Antibes</title>
+    <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
+    <meta charset="UTF-8">
+  </head>
+  <body onload="loadData();">
+
+    <ul>
+      <li><a href="">Boutiques</a></li>
+      <li><a href="">Bons Plans</a></li>
+      <li><a href="">Lèche-vitrine</a></li>
+      <li><a href="">Tam-tam « Shop In »</a></li>
+      <li><a href="">Mon club « Shop In »</a></li>
+      <li><a href="modules/venir/html/index.html">Venir sur Antibes Juan-les-Pins</a></li>
+    </ul>
+
+<input type="text" id="login">
+<input type="text" id="pwd">
+<input type="submit" onclick="saveData();">
+
+
+<div id="result"></div>
+
+
+<script>
+
+function saveData(){
+	// Check browser support
+	if (typeof(Storage) != "undefined") {
+	    // Store
+	    localStorage.setItem("lastname", document.getElementById("login").value);
+	    // Retrieve
+	    document.getElementById("result").innerHTML = localStorage.getItem("lastname");
+	} else {
+	    document.getElementById("result").innerHTML = "Sorry, your browser does not support Web Storage...";
+	}
+
+}
+
+function loadData(){
+
+	// Check browser support
+	if (typeof(Storage) != "undefined") {
+
+		document.getElementById("result").innerHTML = "voici le login sauvegardé : " + localStorage.getItem("lastname");
+	}else {
+	    document.getElementById("result").innerHTML = "Sorry, your browser does not support Web Storage...";
+	}
+}
+
+</script>
+
+  </body>
+</html>
